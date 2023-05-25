@@ -1,0 +1,30 @@
+CREATE DATABASE projeto1_backend;
+
+USE projeto1_backend;
+
+CREATE TABLE rentas(
+id INT AUTO_INCREMENT NOT NULL,
+customer VARCHAR(45),
+car_brand VARCHAR(45), 
+car_model VARCHAR(45),
+license_plate VARCHAR(45),
+pickup_location VARCHAR(45), 
+return_location VARCHAR(45),
+price FLOAT (10,2),
+pickup_date DATE,
+return_date DATE,
+comments VARCHAR(100),
+PRIMARY KEY(id)
+);
+
+INSERT INTO rentals (id, customer, car_brand, car_model, license_plate, pickup_location, return_location, price, pickup_date, return_date, comments) 
+VALUES  (1, 'João Silva', 'Ford', 'Focus', '01-AA-01', 'Lisboa', 'Lisboa', 150.00, '2023-05-10', '2023-05-15', 'Sem comentários'),
+  (2, 'Maria Santos', 'Renault', 'Clio', '02-BB-02', 'Porto', 'Porto', 140.00, '2023-05-12', '2023-05-16', 'Entregar com tanque cheio'),
+  (3, 'António Pereira', 'Volkswagen', 'Golf', '03-CC-03', 'Faro', 'Faro', 160.00, '2023-05-15', '2023-05-20', 'Precisa de cadeira para criança'),
+  (4, 'Ana Costa', 'Peugeot', '208', '04-DD-04', 'Coimbra', 'Coimbra', 145.00, '2023-05-18', '2023-05-22', 'Não fumar no carro'),
+  (5, 'José Santos', 'Toyota', 'Corolla', '05-EE-05', 'Braga', 'Braga', 155.00, '2023-05-20', '2023-05-25', 'Sem restrições'),
+  (6, 'Rui Ferreira', 'Opel', 'Corsa', '06-FF-06', 'Porto', 'Lisboa', 180.00, '2023-05-22', '2023-05-27', 'Levar o carro lavado'),
+  (7, 'Marta Oliveira', 'Fiat', '500', '07-GG-07', 'Funchal', 'Funchal', 165.00, '2023-05-25', '2023-05-30', 'Entregar com meio tanque de combustível'),
+  (8, 'Pedro Sousa', 'BMW', 'X1', '08-HH-08', 'Porto', 'Lisboa', 220.00, '2023-06-01', '2023-06-08', 'Fumar no carro é proibido'),
+  (9, 'Sofia Almeida', 'Renault', 'Megane', '09-II-09', 'Lisboa', 'Porto', 200.00, '2023-06-05', '2023-06-10', 'Precisa de GPS'),
+  (10, 'Hugo Santos', 'Nissan', 'Qashqai', '10-JJ-10', 'Faro', 'Porto', 250.00, '2023-06-10', '2023-06-17', 'Levar o carro com o tanque cheio');

@@ -1,0 +1,327 @@
+// 07-03-2023
+// FichaAula2 - Moodle
+// Ex. 1
+/*
+function IMC(peso, altura){
+    var imc = (peso/(altura)**2); // ** means elevado
+    if(imc < 18.5)
+        console.log('Encontra-se abaixo do peso indicado, pois esta com um valor de ' + imc.toFixed(1));
+    else if (imc >= 18.5 && imc < 25) {
+        console.log('Encontra-se no peso ideal, pois esta com um valor de ' + imc.toFixed(1));
+    } else if (imc >= 25 && imc < 30) {
+        console.log('Encontra-se acima do peso ideal, pois esta com um valor de ' + imc.toFixed(1));
+    } else {
+        console.log('Encontra-se na condicao de obeso, pois esta com um valor de ' + imc.toFixed(1));
+    }
+}
+ function calcularIMC(kilos, altura) {
+	altura = altura / 100;
+	return (kilos / (altura * altura));
+}
+
+
+// A altura esta em centimetros por isso encontra se com o ponto, para estar em metros e a altura * altura
+
+IMC(30,1.50); //console.log('Encontra-se abaixo do peso indicado');
+IMC(80,1.50); //console.log('Encontra-se no peso ideal');
+IMC(90,1.80); //console.log('Encontra-se acima do peso ideal');
+IMC(120,1.80); // console.log('Encontra-se na condicao de obeso');
+
+// Ex.2
+// Entrada - string, Saida - inverted String
+
+
+
+function Inverter(str) {
+    var splittedSTR = str.split(' '); // o split separa a string num array
+    var reversedSTR = '';
+    for (let i = 0; i < splittedSTR.length; i++) { // array com palavras
+        //console.log(splittedSTR[i]);   
+        // var s = splittedSTR[i].length; // conta numero de characteres de cada palavra
+        for (let j = splittedSTR[i].length - 1; j >= 0; j--) { // array sobre as palavras e os seus caracteres
+           //percorre o array do fim para o  inicio e 'j >= 0 - para acabar na primeira letra'
+           // var word = splittedSTR [0][0] - neste caso aparece, so com o primeiro [0] - Hoje, com o [0][0] - H, pois e um array e vai buscar
+           // o que se encontra no indice 0 de Hoje
+           // console.log(splittedSTR[i][j])    aparece verticalmente, a str ao contrario 
+           reversedSTR += splittedSTR[i][j]; // vai do inicio para o fim
+        } 
+        reversedSTR += ' ';
+    }
+    return reversedSTR;
+}
+
+var str = 'Hoje e Domingo'; 
+var rev = Inverter(str);
+console.log(rev);
+
+// 09-03-2023
+// FichaAula2 - Moodle
+
+
+// Ex. 3
+
+
+function countVowels(str) {
+    var count = 0;
+    for (let i = 0; i < str.length; i++) {
+        var c = str[0];
+        if (c=='a' || c=='e' || c=='i' || c=='o' || c=='u') {
+           count++; 
+        }
+    }
+    return count;
+}
+
+// Ex. 4
+
+function countLetter(frase, letra) {
+    var count = 0;
+    var lowerF = frase.toLowerCase();
+    var lowerL = letra.toLowerCase();
+    for (let i = 0; i < lowerF.length; i++) {
+      if (lowerF[i] === lowerL) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+// Ex. 4 Prof example
+
+function CountChar(str, char) {
+    var count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == char) {
+            count++;
+        };
+    return count;  
+    }
+    
+}
+
+// Ex. 5 
+
+function calcularTempoDeTrabalho(OpHour, ClHour) {
+    var Opening = new Date();
+    Opening.setHours(8, 0, 0); 
+  
+    var Closing = new Date();
+    Closing.setHours(18, 0, 0); 
+  
+    var entrada = new Date('09/03/2023 ${OpHour}');
+    var saida = new Date('09/03/2023 ${ClHour}');
+  
+    // Verifica se a hora de entrada e a hora de saída estão dentro do horário de funcionamento da empresa
+    if (entrada > Opening && saida < Closing) {
+        var tempoDeTrabalho = saida - entrada;
+        var segundos = Math.floor((tempoDeTrabalho / 1000) % 60);
+        var minutos = Math.floor((tempoDeTrabalho / 1000 / 60) % 60);
+        var horas = Math.floor((tempoDeTrabalho / (1000 * 60 * 60)) % 24);
+        return 'Tempo de trabalho: ${horas} horas, ${minutos} minutos e ${segundos} segundos.';
+      
+    }
+    return "Horário inválido. A empresa funciona entre as 08:00:00 e as 18:00:00.";
+    
+  }
+
+// Ex. 5 Prof Example
+
+function calcularTempoDeTrabalho(he, me, se, hs, ms, ss) {
+    var tse = he * 3600 + me * 60 + se; //tempo segundos entrada
+    var tss = he * 3600 + me * 60 + se; //tempo segundos saida
+
+    var total = tse - tss;
+
+    var reminderH = total % 3600; // de segundos para horas
+    var h = (total - reminderH) / 3600; // horas
+
+    var reminderM = reminderH % 60; // de horas para minutos
+    var m = (reminderH - reminderM) / 60; // minutos
+
+    var s = reminderH; // segundos
+
+    var HE = 8;
+    var HS = 18;
+    if (he >= HE && hs <= HS) { 
+        return 'Tempo de trabalho: ${horas} horas, ${minutos} minutos e ${segundos} segundos.';
+    }
+  }
+
+// Ex. 6 
+
+function Square(altura, largura) {
+    for (let i = 0; i < altura; i++) { // loop pela linha
+      let linha = '';
+      for (let j = 0; j < largura; j++) { // loop pela largura
+        linha += '*';  // adiciona * de acordo com o valor inserido em linha e na largura
+      }
+    console.log(linha);
+    }
+  }
+
+// Ex. 6 Prof Example
+
+function DrawSquare(char, altura, largura) {
+    let linha = '';
+    for (let i = 0; i < largura; i++) { // loop pela linha
+        linha += char;
+    }
+    for (let j = 0; j < altura; j++) { // loop pela largura
+        console.log(linha);
+      } 
+  }
+
+DrawSquare('*', 5, 10);
+DrawSquare('+', 5, 10);
+
+// Ex. 7 
+  
+function Triangulo(char, altura) {
+    var linha = '';
+    for (let i = 0; i < altura; i++) { // loop pela linha  
+        linha += char;  // adiciona o char de acordo com o valor inserido em linha e na largura
+        console.log(linha); 
+    }   
+  }
+
+
+// Ex. 8 
+
+
+function DrawCaixa(char, size) {
+ for (let i = 1; i <= size; i++) {
+    let linha = "";
+    for (let j = 1; j <= size; j++) {
+
+      if (i == 1 || i == size || j == 1 || j == size) {
+        linha += char; // se estiver na primeira, última linha ou primeira, última coluna, desenha o character
+      } else {
+        linha += " "; // caso contrário, desenha um espaço em branco
+      }
+    }
+    console.log(linha); 
+  }
+}
+
+
+// Ex. 8 Prof Example
+
+function DrawCaixa2(char, size) {
+    var box = 0;
+    for (let i = 0; i <= size; i++) {
+       for (let j = 0; j <= size; j++) {
+         if (i == 0 || i == size -1 || j == 1 || j == size -1) { //necessario por o -1 porque comecamos no 0
+           box += char; // se estiver na primeira, última linha ou primeira, última coluna, desenha o character
+         } else {
+           box += " "; // caso contrário, desenha um espaço em brancoNome
+         }
+       }
+       box += '\n';
+     }
+     console.log(box); 
+   }
+  
+DrawCaixa('*',7);
+
+*/
+
+// Ex. 9
+
+  //var aluno = {nome: 'Alfred Regla', grade: 2, number: 2060722};
+  //var studentList = [];
+  //listaAlunos.push(aluno);
+var listaAlunos = [
+  aluno1 = {nome: 'Alfred Regla', grade: 2, number: 2060722},
+  aluno2 = {nome: 'Chloe Prateek', grade: 15, number: 2060723},
+  aluno3 = {nome: 'Olaf Oskar', grade: 13, number: 2060724},
+  aluno4 = {nome: 'Stine Amar', grade: 11, number: 2060722},
+  aluno5 = {nome: 'Ingeborg Hildiwara', grade: 10, number: 2060725},
+  aluno6 = {nome: 'Shafiq Nilo', grade: 8, number: 2060722},
+  aluno7 = {nome: 'Chariklia Natisha', grade: 4, number: 2060726},
+  aluno8 = {nome: 'Sima Mirabelle', grade: 5, number: 2060727},
+  aluno9 = {nome: 'Amity Iacobus', grade: 17, number: 2060728},
+  aluno10 = {nome: 'Paschalis Rahim', grade: 18, number: 2060729},
+  aluno11 = {nome: 'Vikram Ridvan', grade: 19, number: 2060720},
+  aluno12 = {nome: 'Dominick Mirka', grade: 20, number: 2060721}
+  ]
+
+for (var i = 0; i < listaAlunos.length; i++) {
+  var a = listaAlunos[i];
+  var c = a.name;
+  console.log('O nome do aluno e: ' + a.nome + ', de numero: ' + a.number + ' e de nota: '+ a.grade)
+  }
+
+function Maximo(array) {  // melhor aluno e melhor nota
+  var max = array[0].grade;
+  var melhorAluno = array[0];
+  for (let i = 0; i < array.length; i++) {
+      if (array[i].grade > max) {
+          max = array[i].grade;
+          melhorAluno = array[i];
+      }
+  }
+return melhorAluno;
+}
+
+function Minimo(array) { // pior nota e pior aluno
+  var min = array[0].grade;
+  var piorAluno = array[0];
+  for (let i = 0; i < array.length; i++) {
+      if (array[i].grade < min) {
+          min = array[i].grade;
+          piorAluno = array[i];
+      }
+  }
+return piorAluno;
+}
+
+function Media(array) { // media das notas
+  var sum = 0;
+  for (let i = 0; i < array.length; i++) {
+      sum += array[i].grade; 
+  }
+  med = sum / array.length;
+  return med.toFixed(2); 
+}
+
+function closeMedia(array) { // media das notas
+  var media = Media(array); // buscamos a funcao Media, sendo que e posta num variavel para conseguirmos aceder
+  var min = media; // o valor do min vai ser igual ao da media pois para calcular a nota do aluno mais proxima a da media torna - se muito mais facil
+  var aluno = array[i]; // temos acesso aos objetos no array criado anteriormente
+  for (let i = 0; i < array.length; i++) {
+      var diff = Math.abs(media - array[i].grade); // valor da diferenca vai ser sempre positivo
+      if (diff < min) { 
+        min = diff;
+        aluno = array[i];
+      }
+  }
+  return aluno;
+}
+
+function getNegatives(array){
+  var count = 0;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].grade < 9.5) {
+      count++;
+    } 
+  }
+  return count;
+}
+
+function getPositives(array){
+  var count = 0;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].grade >= 9.5) {
+      count++;
+    } 
+  }
+  return count;
+}
+
+console.log(Maximo(listaAlunos)); 
+console.log(Minimo(listaAlunos)); 
+console.log('A media de notas dos alunos e de: ' + Media(listaAlunos)); 
+var x =  "O aluno com a nota mais aproximada a media e:";
+console.log(x ,closeMedia(listaAlunos)); 
+console.log('O numero de alunos com nota negativa e: ' + getNegatives(listaAlunos));
+console.log('O numero de alunos com nota positiva e: ' + getPositives(listaAlunos));
